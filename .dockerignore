@@ -1,0 +1,13 @@
+.venv/
+data/
+__pycache__/
+*.py[cod]
+.git/
+.gitignore
+.env
+.screenshots/
+docs/
+PRD.md
+系统设计.md
+开发说明.md
+README.md

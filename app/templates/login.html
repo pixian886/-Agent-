@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}登录 · 从零开始Agent学习{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-intro">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h1>继续走你的<br><em>学习路线</em>。</h1>
+        <p class="auth-lead">
+            6 章 Python 先修 + 24 课 Agent 开发，从环境配置到搭建智能体。
+            每一课都有练习，每一步都有记录。
+        </p>
+
+        <div class="auth-note">
+            <span>演示账号</span>
+            <code>demo / demo123</code>
+        </div>
+    </div>
+
+    <div class="auth-card">
+        <h2>登录</h2>
+
+        {% if error %}
+            <p class="form-error">{{ error }}</p>
+        {% endif %}
+
+        <form class="auth-form" method="post" action="/login">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <label class="form-field">
+                <span>用户名</span>
+                <input
+                    class="form-input"
+                    type="text"
+                    name="username"
+                    value="{{ username or '' }}"
+                    autocomplete="username"
+                    minlength="3"
+                    maxlength="20"
+                    required
+                >
+            </label>
+
+            <label class="form-field">
+                <span>密码</span>
+                <input
+                    class="form-input"
+                    type="password"
+                    name="password"
+                    autocomplete="current-password"
+                    minlength="6"
+                    maxlength="64"
+                    required
+                >
+            </label>
+
+            <button class="btn btn-primary" type="submit">登录</button>
+        </form>
+
+        <p class="auth-switch">
+            还没有账号？<a href="/register">创建一个</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

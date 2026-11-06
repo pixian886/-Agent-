@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">上下文预算像行李箱</title>
+  <desc id="desc">上下文窗口容量有限，system、工具、任务、资料与历史都要占空间，需要按优先级裁剪。</desc>
+
+  <text x="40" y="34" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16" font-weight="bold">上下文窗口是一只容量有限的行李箱</text>
+
+  <rect x="40" y="70" width="680" height="132" rx="18" fill="#fffcf5" stroke="#b9ad99" stroke-width="2"/>
+  <text x="56" y="92" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">一次请求最多能带的 token</text>
+
+  <rect x="56" y="104" width="102" height="72" rx="8" fill="#f4efe4" stroke="#d8cfc0"/>
+  <text x="107" y="132" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" font-weight="bold">system</text>
+  <text x="107" y="151" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9">身份与边界</text>
+  <text x="107" y="168" text-anchor="middle" fill="#b4442a" font-family="Consolas, Courier New, monospace" font-size="9">不可删</text>
+
+  <rect x="166" y="104" width="102" height="72" rx="8" fill="#f4efe4" stroke="#d8cfc0"/>
+  <text x="217" y="132" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" font-weight="bold">工具定义</text>
+  <text x="217" y="151" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9">名称与 schema</text>
+  <text x="217" y="168" text-anchor="middle" fill="#b4442a" font-family="Consolas, Courier New, monospace" font-size="9">按需加载</text>
+
+  <rect x="276" y="104" width="152" height="72" rx="8" fill="#fffcf5" stroke="#b4442a"/>
+  <text x="352" y="132" text-anchor="middle" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" font-weight="bold">当前任务</text>
+  <text x="352" y="151" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9">用户问题与目标</text>
+  <text x="352" y="168" text-anchor="middle" fill="#b4442a" font-family="Consolas, Courier New, monospace" font-size="9">优先保留</text>
+
+  <rect x="436" y="104" width="158" height="72" rx="8" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="515" y="132" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" font-weight="bold">检索资料</text>
+  <text x="515" y="151" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9">chunk 与引用</text>
+  <text x="515" y="168" text-anchor="middle" fill="#b7791f" font-family="Consolas, Courier New, monospace" font-size="9">超限先压缩</text>
+
+  <rect x="602" y="104" width="102" height="72" rx="8" fill="#f4efe4" stroke="#d8cfc0"/>
+  <text x="653" y="132" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11" font-weight="bold">旧历史</text>
+  <text x="653" y="151" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="9">早期对话</text>
+  <text x="653" y="168" text-anchor="middle" fill="#b7791f" font-family="Consolas, Courier New, monospace" font-size="9">摘要或丢弃</text>
+
+  <line x1="40" y1="230" x2="720" y2="230" stroke="#d8cfc0"/>
+
+  <text x="40" y="258" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold">优先级</text>
+  <text x="110" y="258" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">system 与当前任务 &gt; 工具定义 &gt; 检索资料 &gt; 旧历史</text>
+  <text x="40" y="282" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">先裁剪低优先级内容，再做摘要；不要等报错“上下文超限”才处理。</text>
+</svg>

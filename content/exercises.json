@@ -1,0 +1,473 @@
+[
+  {
+    "id": "e01",
+    "lesson_id": "l01",
+    "type": "single_choice",
+    "title": "哪个命令可以查看 Python 版本？",
+    "options": [
+      "python --version",
+      "python run",
+      "pip install",
+      "python help"
+    ],
+    "answer_index": 0,
+    "explanation": "python --version 用于输出当前 Python 解释器版本。"
+  },
+  {
+    "id": "e02",
+    "lesson_id": "l01",
+    "type": "coding",
+    "title": "输出 Hello, Python!",
+    "description": "编写程序，在标准输出中打印 Hello, Python!",
+    "starter_code": "print(\"Hello\")",
+    "answer_code": "print(\"Hello, Python!\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected_stdout": "Hello, Python!"
+      }
+    ]
+  },
+  {
+    "id": "e03",
+    "lesson_id": "l02",
+    "type": "fill_blank",
+    "title": "输出内容到控制台的函数是 ____。",
+    "answers": ["print"],
+    "case_sensitive": false,
+    "explanation": "Python 使用 print() 输出内容。"
+  },
+  {
+    "id": "e04",
+    "lesson_id": "l02",
+    "type": "coding",
+    "title": "两数求和",
+    "description": "读入两个整数，每行一个，输出它们的和。",
+    "starter_code": "a = int(input())\nb = int(input())\n# 在这里计算并输出和\n",
+    "answer_code": "a = int(input())\nb = int(input())\nprint(a + b)\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "3\n5",
+        "expected_stdout": "8"
+      },
+      {
+        "stdin": "-2\n7",
+        "expected_stdout": "5"
+      },
+      {
+        "stdin": "0\n0",
+        "expected_stdout": "0"
+      }
+    ]
+  },
+  {
+    "id": "e05",
+    "lesson_id": "l03",
+    "type": "single_choice",
+    "title": "下面哪段代码会输出 0、1、2？",
+    "options": [
+      "for i in range(3): print(i)",
+      "for i in range(1, 3): print(i)",
+      "for i in range(3, 0, -1): print(i)",
+      "for i in range(1, 4): print(i)"
+    ],
+    "answer_index": 0,
+    "explanation": "range(3) 依次产生 0、1、2。"
+  },
+  {
+    "id": "e06",
+    "lesson_id": "l03",
+    "type": "coding",
+    "title": "判断奇偶",
+    "description": "读入一个整数，输出「偶数」或「奇数」。",
+    "starter_code": "n = int(input())\n# 在这里判断并输出\n",
+    "answer_code": "n = int(input())\nif n % 2 == 0:\n    print(\"偶数\")\nelse:\n    print(\"奇数\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "7",
+        "expected_stdout": "奇数"
+      },
+      {
+        "stdin": "4",
+        "expected_stdout": "偶数"
+      },
+      {
+        "stdin": "0",
+        "expected_stdout": "偶数"
+      }
+    ]
+  },
+  {
+    "id": "e07",
+    "lesson_id": "l03",
+    "type": "coding",
+    "title": "1 到 n 求和",
+    "description": "读入一个正整数 n，输出 1 + 2 + ... + n 的结果。",
+    "starter_code": "n = int(input())\ntotal = 0\n# 在这里循环累加并输出\n",
+    "answer_code": "n = int(input())\ntotal = 0\nfor i in range(1, n + 1):\n    total += i\nprint(total)\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "1",
+        "expected_stdout": "1"
+      },
+      {
+        "stdin": "5",
+        "expected_stdout": "15"
+      },
+      {
+        "stdin": "100",
+        "expected_stdout": "5050"
+      }
+    ]
+  },
+  {
+    "id": "e08",
+    "lesson_id": "l04",
+    "type": "coding",
+    "title": "用函数求较大值",
+    "description": "定义函数 max_of_two(a, b)，读入两个整数，输出较大值。",
+    "starter_code": "def max_of_two(a, b):\n    # 在这里返回较大值\n    pass\n\na = int(input())\nb = int(input())\nprint(max_of_two(a, b))\n",
+    "answer_code": "def max_of_two(a, b):\n    if a >= b:\n        return a\n    return b\n\na = int(input())\nb = int(input())\nprint(max_of_two(a, b))\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "3\n5",
+        "expected_stdout": "5"
+      },
+      {
+        "stdin": "-1\n-9",
+        "expected_stdout": "-1"
+      },
+      {
+        "stdin": "7\n7",
+        "expected_stdout": "7"
+      }
+    ]
+  },
+  {
+    "id": "e09",
+    "lesson_id": "l05",
+    "type": "coding",
+    "title": "列表最大值与平均值",
+    "description": "读入一行空格分隔的整数，第一行输出最大值，第二行输出平均值（保留 1 位小数）。",
+    "starter_code": "numbers = list(map(int, input().split()))\n# 在这里计算最大值与平均值\n",
+    "answer_code": "numbers = list(map(int, input().split()))\nprint(max(numbers))\nprint(f\"{sum(numbers) / len(numbers):.1f}\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "3 5 2 8",
+        "expected_stdout": "8\n4.5"
+      },
+      {
+        "stdin": "10",
+        "expected_stdout": "10\n10.0"
+      },
+      {
+        "stdin": "-1 -2 -3",
+        "expected_stdout": "-1\n-2.0"
+      }
+    ]
+  },
+  {
+    "id": "e10",
+    "lesson_id": "l06",
+    "type": "coding",
+    "title": "Student 类",
+    "description": "定义 Student 类，包含 name 和 score，方法 is_pass() 在成绩不低于 60 时返回 True。读入姓名和成绩，输出「姓名:及格」或「姓名:不及格」。",
+    "starter_code": "class Student:\n    def __init__(self, name, score):\n        # 在这里保存属性\n        pass\n\n    def is_pass(self):\n        # 在这里判断是否及格\n        pass\n\nname = input()\nscore = int(input())\nstudent = Student(name, score)\nprint(f\"{student.name}:{'及格' if student.is_pass() else '不及格'}\")\n",
+    "answer_code": "class Student:\n    def __init__(self, name, score):\n        self.name = name\n        self.score = score\n\n    def is_pass(self):\n        return self.score >= 60\n\nname = input()\nscore = int(input())\nstudent = Student(name, score)\nprint(f\"{student.name}:{'及格' if student.is_pass() else '不及格'}\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "小明\n58",
+        "expected_stdout": "小明:不及格"
+      },
+      {
+        "stdin": "小红\n60",
+        "expected_stdout": "小红:及格"
+      },
+      {
+        "stdin": "Tom\n75",
+        "expected_stdout": "Tom:及格"
+      }
+    ]
+  },
+  {
+    "id": "e11",
+    "lesson_id": "l10",
+    "type": "coding",
+    "title": "SQLite 留言写入与查询",
+    "description": "读入一行非空文本，创建 messages 表，插入该文本，再查询并输出「已保存: 文本」。",
+    "starter_code": "import sqlite3\n\ncontent = input()\n# 在这里创建表、插入并查询\n",
+    "answer_code": "import sqlite3\n\ncontent = input()\nconn = sqlite3.connect(\":memory:\")\nconn.execute(\n    \"CREATE TABLE messages (id INTEGER PRIMARY KEY AUTOINCREMENT, content TEXT NOT NULL)\"\n)\nconn.execute(\"INSERT INTO messages (content) VALUES (?)\", (content,))\nconn.commit()\nrow = conn.execute(\"SELECT content FROM messages ORDER BY id DESC LIMIT 1\").fetchone()\nconn.close()\nprint(f\"已保存: {row[0]}\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "Hello",
+        "expected_stdout": "已保存: Hello"
+      },
+      {
+        "stdin": "你好",
+        "expected_stdout": "已保存: 你好"
+      },
+      {
+        "stdin": "Python",
+        "expected_stdout": "已保存: Python"
+      }
+    ]
+  },
+  {
+    "id": "e12",
+    "lesson_id": "l01",
+    "type": "local_task",
+    "title": "搭好 Python 工作台",
+    "description": "在本机创建虚拟环境、安装 requests，并运行一个脚本输出 requests 版本。",
+    "steps": [
+      "打开终端，进入你准备放代码的目录",
+      "执行 python -m venv .venv 创建虚拟环境",
+      "Windows 执行 .venv\\Scripts\\activate；macOS/Linux 执行 source .venv/bin/activate",
+      "执行 pip install requests",
+      "新建 check.py，写入起步代码",
+      "执行 python check.py，看到版本号即完成"
+    ],
+    "starter_code": "import requests\n\nprint(requests.__version__)\n",
+    "answer": "先创建并激活虚拟环境，再安装 requests，最后运行 check.py。终端里能看到 requests 的版本号就说明环境可用。",
+    "answer_code": "python -m venv .venv\n.venv\\Scripts\\activate\npip install requests\npython check.py",
+    "common_errors": [
+      "提示 python 不是内部或外部命令：安装 Python 时没有勾选 Add to PATH",
+      "激活脚本被系统策略拦截：改用 .venv\\Scripts\\python.exe check.py 直接运行",
+      "pip install 很慢或失败：检查网络，或临时使用国内镜像源"
+    ]
+  },
+  {
+    "id": "e13",
+    "lesson_id": "l04",
+    "type": "coding",
+    "title": "把函数当参数传",
+    "description": "补全 apply(func, value)，让它调用传入的函数并返回结果。程序会分别用 double 和 square 调用它。",
+    "starter_code": "def double(x):\n    return x * 2\n\ndef square(x):\n    return x * x\n\ndef apply(func, value):\n    # 在这里调用 func 并返回结果\n    pass\n\nn = int(input())\nprint(apply(double, n))\nprint(apply(square, n))\n",
+    "answer_code": "def double(x):\n    return x * 2\n\ndef square(x):\n    return x * x\n\ndef apply(func, value):\n    return func(value)\n\nn = int(input())\nprint(apply(double, n))\nprint(apply(square, n))\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "3",
+        "expected_stdout": "6\n9"
+      },
+      {
+        "stdin": "0",
+        "expected_stdout": "0\n0"
+      },
+      {
+        "stdin": "-2",
+        "expected_stdout": "-4\n4"
+      }
+    ]
+  },
+  {
+    "id": "e14",
+    "lesson_id": "l05",
+    "type": "coding",
+    "title": "嵌套字典取值",
+    "description": "从 students 字典中读取姓名对应的数学成绩；姓名不存在时输出「未找到」。",
+    "starter_code": "students = {\n    \"小明\": {\"math\": 92, \"english\": 85},\n    \"小红\": {\"math\": 78, \"english\": 90},\n}\n\nname = input()\n# 在这里取值并输出\n",
+    "answer_code": "students = {\n    \"小明\": {\"math\": 92, \"english\": 85},\n    \"小红\": {\"math\": 78, \"english\": 90},\n}\n\nname = input()\nif name in students:\n    print(students[name][\"math\"])\nelse:\n    print(\"未找到\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "小明",
+        "expected_stdout": "92"
+      },
+      {
+        "stdin": "小红",
+        "expected_stdout": "78"
+      },
+      {
+        "stdin": "小刚",
+        "expected_stdout": "未找到"
+      }
+    ]
+  },
+  {
+    "id": "e15",
+    "lesson_id": "l07",
+    "type": "coding",
+    "title": "解析 JSON 并输出字段",
+    "description": "读入一行 JSON，解析后输出「姓名:年龄」。",
+    "starter_code": "import json\n\nraw = input()\ndata = json.loads(raw)\n# 在这里输出 姓名:年龄\n",
+    "answer_code": "import json\n\nraw = input()\ndata = json.loads(raw)\nprint(f\"{data['name']}:{data['age']}\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "{\"name\": \"小明\", \"age\": 18}",
+        "expected_stdout": "小明:18"
+      },
+      {
+        "stdin": "{\"name\": \"Tom\", \"age\": 20}",
+        "expected_stdout": "Tom:20"
+      },
+      {
+        "stdin": "{\"name\": \"小红\", \"age\": 17}",
+        "expected_stdout": "小红:17"
+      }
+    ]
+  },
+  {
+    "id": "e16",
+    "lesson_id": "l07",
+    "type": "coding",
+    "title": "写入文件再读回",
+    "description": "读入两行文本，写入 notes.txt（每行一条），再读回，输出行数和第一行。",
+    "starter_code": "line1 = input()\nline2 = input()\n\n# 在这里写入 notes.txt，再读回\n",
+    "answer_code": "line1 = input()\nline2 = input()\n\nwith open(\"notes.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(line1 + \"\\n\")\n    f.write(line2 + \"\\n\")\n\nwith open(\"notes.txt\", \"r\", encoding=\"utf-8\") as f:\n    lines = f.read().splitlines()\n\nprint(len(lines))\nprint(lines[0])\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "苹果\n香蕉",
+        "expected_stdout": "2\n苹果"
+      },
+      {
+        "stdin": "hello\nworld",
+        "expected_stdout": "2\nhello"
+      },
+      {
+        "stdin": "你好\n世界",
+        "expected_stdout": "2\n你好"
+      }
+    ]
+  },
+  {
+    "id": "e17",
+    "lesson_id": "l08",
+    "type": "coding",
+    "title": "调用 mock 天气接口",
+    "description": "用 requests.get 请求本地 mock 接口，参数 city 来自输入；解析 JSON 后输出「城市 温度℃」。",
+    "starter_code": "import requests\n\ncity = input()\nurl = \"http://127.0.0.1:8765/weather\"\n# 用 requests.get 请求，带 params={\"city\": city}\n# 解析 JSON，输出 城市 温度℃\n",
+    "answer_code": "import requests\n\ncity = input()\nurl = \"http://127.0.0.1:8765/weather\"\nresponse = requests.get(url, params={\"city\": city}, timeout=5)\nresponse.raise_for_status()\ndata = response.json()\nprint(f\"{data['city']} {data['temperature']}℃\")\n",
+    "timeout_seconds": 5,
+    "mock_http": {
+      "port": 8765,
+      "path": "/weather",
+      "query_key": "city",
+      "responses": {
+        "beijing": {
+          "city": "北京",
+          "temperature": 26
+        },
+        "shanghai": {
+          "city": "上海",
+          "temperature": 22
+        },
+        "guangzhou": {
+          "city": "广州",
+          "temperature": 30
+        }
+      },
+      "default": {
+        "city": "未知",
+        "temperature": 0
+      }
+    },
+    "test_cases": [
+      {
+        "stdin": "beijing",
+        "expected_stdout": "北京 26℃"
+      },
+      {
+        "stdin": "shanghai",
+        "expected_stdout": "上海 22℃"
+      },
+      {
+        "stdin": "guangzhou",
+        "expected_stdout": "广州 30℃"
+      }
+    ]
+  },
+  {
+    "id": "e18",
+    "lesson_id": "l08",
+    "type": "local_task",
+    "title": "调用真实公开 API",
+    "description": "在本机用 requests 调用 httpbin.org，打印查询参数，并把完整响应保存为 result.json。",
+    "steps": [
+      "确认已经安装 requests（pip install requests）",
+      "新建 api_demo.py",
+      "用 requests.get 请求 https://httpbin.org/get，params={\"course\": \"python\"}，设置 timeout=10",
+      "打印 response.json()[\"args\"][\"course\"]",
+      "把 response.json() 用 json.dump 写入 result.json"
+    ],
+    "starter_code": "import json\nimport requests\n\nurl = \"https://httpbin.org/get\"\n# 用 requests.get 请求，带 params 和 timeout\n# 打印 args.course，并把完整响应写入 result.json\n",
+    "answer": "真实 API 也会失败：先看状态码，再解析 JSON。httpbin 会把查询参数原样回显在 args 里。",
+    "answer_code": "import json\nimport requests\n\nurl = \"https://httpbin.org/get\"\nresponse = requests.get(url, params={\"course\": \"python\"}, timeout=10)\nresponse.raise_for_status()\ndata = response.json()\nprint(data[\"args\"][\"course\"])\nwith open(\"result.json\", \"w\", encoding=\"utf-8\") as f:\n    json.dump(data, f, ensure_ascii=False, indent=2)\n",
+    "common_errors": [
+      "连接超时：检查网络或代理，确认 timeout 没有被设得太短",
+      "SSL 证书错误：公司网络可能替换证书，换网络或使用系统证书",
+      "httpbin 访问不了：换一个公开 API，重点练请求、状态码与 JSON 解析"
+    ]
+  },
+  {
+    "id": "e19",
+    "lesson_id": "l09",
+    "type": "coding",
+    "title": "捕获除零异常",
+    "description": "读入两个整数并做除法；除数为 0 时输出「除数不能为 0」，否则输出结果。",
+    "starter_code": "a = int(input())\nb = int(input())\n\ntry:\n    # 在这里做除法并输出\n    pass\nexcept ZeroDivisionError:\n    print(\"除数不能为 0\")\n",
+    "answer_code": "a = int(input())\nb = int(input())\n\ntry:\n    print(a / b)\nexcept ZeroDivisionError:\n    print(\"除数不能为 0\")\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "6\n2",
+        "expected_stdout": "3.0"
+      },
+      {
+        "stdin": "5\n2",
+        "expected_stdout": "2.5"
+      },
+      {
+        "stdin": "1\n0",
+        "expected_stdout": "除数不能为 0"
+      }
+    ]
+  },
+  {
+    "id": "e20",
+    "lesson_id": "l09",
+    "type": "coding",
+    "title": "失败重试三次",
+    "description": "补全 retry(func, times)：最多调用 times 次，成功就返回结果，全部失败返回「重试失败」。",
+    "starter_code": "attempts = {\"count\": 0}\n\ndef fetch():\n    attempts[\"count\"] += 1\n    if attempts[\"count\"] < 3:\n        raise RuntimeError(\"暂时失败\")\n    return \"成功\"\n\ndef always_fail():\n    raise RuntimeError(\"一直失败\")\n\ndef retry(func, times):\n    # 在这里实现重试\n    pass\n\nprint(retry(fetch, 3))\nprint(retry(always_fail, 3))\n",
+    "answer_code": "attempts = {\"count\": 0}\n\ndef fetch():\n    attempts[\"count\"] += 1\n    if attempts[\"count\"] < 3:\n        raise RuntimeError(\"暂时失败\")\n    return \"成功\"\n\ndef always_fail():\n    raise RuntimeError(\"一直失败\")\n\ndef retry(func, times):\n    for _ in range(times):\n        try:\n            return func()\n        except RuntimeError:\n            continue\n    return \"重试失败\"\n\nprint(retry(fetch, 3))\nprint(retry(always_fail, 3))\n",
+    "timeout_seconds": 3,
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected_stdout": "成功\n重试失败"
+      }
+    ]
+  },
+  {
+    "id": "e21",
+    "lesson_id": "l09",
+    "type": "local_task",
+    "title": "用 .env 管理 Key",
+    "description": "把 API_KEY 放进 .env，用 python-dotenv 读取，并在请求头里发送；代码中不允许出现 Key 字面量。",
+    "steps": [
+      "安装依赖：pip install requests python-dotenv",
+      "在项目目录新建 .env，写入 API_KEY=demo-key-123",
+      "新建 env_demo.py，用 load_dotenv() 读取 API_KEY",
+      "请求 https://httpbin.org/headers，带 Authorization: Bearer <key>",
+      "打印返回 JSON 中 headers.Authorization"
+    ],
+    "starter_code": "import os\n\nimport requests\nfrom dotenv import load_dotenv\n\nload_dotenv()\napi_key = os.getenv(\"API_KEY\")\n# 用 api_key 组装请求头，请求 httpbin/headers 并打印回显\n",
+    "answer": ".env 只放本机配置，不提交到 Git。代码通过 os.getenv 读取，换 Key 时只改 .env，不用改代码。",
+    "answer_code": "import os\n\nimport requests\nfrom dotenv import load_dotenv\n\nload_dotenv()\napi_key = os.getenv(\"API_KEY\")\nif not api_key:\n    raise RuntimeError(\"没有读取到 API_KEY，请检查 .env\")\n\nresponse = requests.get(\n    \"https://httpbin.org/headers\",\n    headers={\"Authorization\": f\"Bearer {api_key}\"},\n    timeout=10,\n)\nresponse.raise_for_status()\nprint(response.json()[\"headers\"][\"Authorization\"])\n",
+    "common_errors": [
+      "os.getenv 返回 None：.env 不在当前工作目录，或变量名拼写不一致",
+      "ModuleNotFoundError: dotenv：没有安装 python-dotenv",
+      "把 .env 提交到了 Git：立刻删除仓库中的文件并更换 Key"
+    ]
+  }
+]

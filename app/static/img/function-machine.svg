@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">函数把输入变成输出</title>
+  <desc id="desc">输入两个数字，经过 add 函数处理，得到结果。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b4442a"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="42" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">输入</text>
+  <text x="300" y="42" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">函数</text>
+  <text x="560" y="42" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">输出</text>
+
+  <rect x="40" y="80" width="160" height="110" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="120" y="118" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="17">a = 3</text>
+  <text x="120" y="148" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="17">b = 5</text>
+
+  <rect x="270" y="72" width="180" height="126" rx="16" fill="#fffcf5" stroke="#b9ad99" stroke-width="2"/>
+  <text x="360" y="112" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">加工机器</text>
+  <text x="360" y="146" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="18">add(a, b)</text>
+  <text x="360" y="174" text-anchor="middle" fill="#4d7c0f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">返回 a + b</text>
+
+  <rect x="520" y="80" width="160" height="110" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="600" y="118" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">结果</text>
+  <text x="600" y="152" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="30">8</text>
+
+  <line x1="206" y1="135" x2="260" y2="135" stroke="#b4442a" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="456" y1="135" x2="510" y2="135" stroke="#b4442a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="360" y="232" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">函数接收参数，执行一段逻辑，再用 return 交出结果。</text>
+</svg>

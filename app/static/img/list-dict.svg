@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">列表与字典的区别</title>
+  <desc id="desc">列表按位置保存一组数据，字典按键查找数据。</desc>
+
+  <text x="40" y="42" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" letter-spacing="2">列表：按位置</text>
+  <rect x="40" y="62" width="300" height="206" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="60" y="96" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="15">numbers = [3, 5, 2, 8]</text>
+
+  <g font-family="Consolas, Courier New, monospace" font-size="18" text-anchor="middle">
+    <rect x="62" y="120" width="56" height="56" rx="8" fill="#f0e5d2" stroke="#d8cfc0"/>
+    <text x="90" y="156" fill="#1f2933">3</text>
+    <rect x="130" y="120" width="56" height="56" rx="8" fill="#f0e5d2" stroke="#d8cfc0"/>
+    <text x="158" y="156" fill="#1f2933">5</text>
+    <rect x="198" y="120" width="56" height="56" rx="8" fill="#f0e5d2" stroke="#d8cfc0"/>
+    <text x="226" y="156" fill="#1f2933">2</text>
+    <rect x="266" y="120" width="56" height="56" rx="8" fill="#f0e5d2" stroke="#d8cfc0"/>
+    <text x="294" y="156" fill="#1f2933">8</text>
+  </g>
+  <g fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="12" text-anchor="middle">
+    <text x="90" y="198">0</text>
+    <text x="158" y="198">1</text>
+    <text x="226" y="198">2</text>
+    <text x="294" y="198">3</text>
+  </g>
+  <text x="190" y="238" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">用下标取第几个元素</text>
+
+  <text x="390" y="42" fill="#4d7c0f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" letter-spacing="2">字典：按键查找</text>
+  <rect x="390" y="62" width="290" height="206" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="410" y="96" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="15">student = { ... }</text>
+
+  <g font-family="Consolas, Courier New, monospace" font-size="16">
+    <rect x="412" y="118" width="112" height="42" rx="6" fill="#e8efdc" stroke="#b9c9a3"/>
+    <text x="468" y="145" text-anchor="middle" fill="#3f5f1f">"name"</text>
+    <text x="548" y="145" fill="#1f2933">小明</text>
+    <rect x="412" y="170" width="112" height="42" rx="6" fill="#e8efdc" stroke="#b9c9a3"/>
+    <text x="468" y="197" text-anchor="middle" fill="#3f5f1f">"score"</text>
+    <text x="548" y="197" fill="#1f2933">75</text>
+  </g>
+  <text x="535" y="238" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">用键取对应的值</text>
+
+  <text x="360" y="300" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">列表适合保存一组数据，字典适合保存有名字的字段。</text>
+</svg>

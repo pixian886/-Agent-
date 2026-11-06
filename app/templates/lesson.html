@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}{{ lesson.title }} · {{ course.title }}{% endblock %}
+
+{% block content %}
+<article class="lesson-layout">
+    <header class="lesson-head">
+        <p class="lesson-breadcrumb">
+            <a href="/courses/{{ course.id }}/roadmap">{{ stage.title }}</a>
+            <span>/</span>
+            <span>{{ lesson.title }}</span>
+        </p>
+        <h1>{{ lesson.title }}</h1>
+        <div class="lesson-meta">
+            <span>{{ lesson.id|upper }}</span>
+            <span>
+                {% if lesson.exercises %}
+                    {{ lesson.exercises|length }} 道练习
+                {% elif lesson.kind == "project" %}
+                    项目任务
+                {% else %}
+                    内容待补充
+                {% endif %}
+            </span>
+            <span>{% if lesson.id in completed_lesson_ids %}已完成{% else %}未完成{% endif %}</span>
+        </div>
+    </header>
+
+    <div class="lesson-content">
+        {{ lesson.content_html|safe }}
+    </div>
+
+    <section class="exercise-section">
+        <div class="section-heading">
+            <p class="eyebrow">PRACTICE</p>
+            <h2>本课练习</h2>
+            {% if lesson.exercises %}
+                <span class="section-note">站内题提交后判题，本地作业完成后标记</span>
+            {% endif %}
+        </div>
+
+        <noscript>
+            <div class="empty-note">提交练习需要启用 JavaScript。</div>
+        </noscript>
+
+        {% if lesson.exercises %}
+            {% for exercise in lesson.exercises %}
+                {% set state = exercise_states.get(exercise.id) %}
+                {% include "_exercise_preview.html" %}
+            {% endfor %}
+        {% elif lesson.kind == "project" %}
+            <div class="empty-note">
+                本课是项目任务，没有自动判题练习。完成项目后使用下方「标记完成」结束本课。
+            </div>
+        {% else %}
+            <div class="empty-note">
+                本课正文与练习将在后续阶段补齐；可以先返回路线页学习其他课时。
+            </div>
+        {% endif %}
+    </section>
+
+    {% if lesson.kind == "project" and not lesson.exercises %}
+    <section class="project-complete">
+        <div class="project-copy">
+            <p class="eyebrow">PROJECT TASK</p>
+            <h2>完成项目后标记本课</h2>
+            <p>完成项目并在本地验证后，点击按钮结束本课；标记后学习路线会更新完成度。</p>
+        </div>
+        <div class="project-action">
+            {% if lesson.id in completed_lesson_ids %}
+                <span class="btn btn-ghost is-disabled">已完成</span>
+            {% else %}
+                <button
+                    class="btn btn-primary"
+                    type="button"
+                    data-complete-lesson="{{ lesson.id }}"
+                    disabled
+                >标记完成</button>
+                <noscript>
+                    <p class="project-hint">标记完成需要启用 JavaScript。</p>
+                </noscript>
+            {% endif %}
+            <div class="project-result" data-complete-result hidden aria-live="polite"></div>
+        </div>
+    </section>
+    {% endif %}
+
+    <nav class="lesson-nav" aria-label="课时导航">
+        {% if prev_lesson %}
+            <a class="lesson-nav-link" href="/courses/{{ course.id }}/lessons/{{ prev_lesson.id }}">← {{ prev_lesson.title }}</a>
+        {% else %}
+            <span></span>
+        {% endif %}
+        {% if next_lesson %}
+            <a class="lesson-nav-link" href="/courses/{{ course.id }}/lessons/{{ next_lesson.id }}">{{ next_lesson.title }} →</a>
+        {% else %}
+            <span></span>
+        {% endif %}
+    </nav>
+</article>
+{% endblock %}

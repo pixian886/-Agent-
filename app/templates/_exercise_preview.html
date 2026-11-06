@@ -1,0 +1,246 @@
+{% set is_local = exercise.type == "local_task" %}
+{% set is_accepted = state and state.status == "accepted" %}
+{% set judge_disabled = exercise.type == "coding" and judge_mode == "disabled" %}
+<article
+    class="exercise-card {% if is_accepted %}is-accepted{% endif %} {% if is_local %}is-local-task{% endif %}"
+    data-exercise-id="{{ exercise.id }}"
+    data-exercise-type="{{ exercise.type }}"
+>
+    <header class="exercise-head">
+        <span class="exercise-type">{{ exercise.type_label }}</span>
+        <h3>{{ exercise.title }}</h3>
+    </header>
+
+    {% if state and state.status %}
+        {% set state_label = "可继续重做" %}
+        {% if state.status == "accepted" %}
+            {% set state_label = "已完成" if is_local else "已通过" %}
+        {% elif state.status == "wrong_answer" %}
+            {% if exercise.type == "trajectory_task" %}
+                {% set state_label = "轨迹未通过 · 可继续重做" %}
+            {% else %}
+                {% set state_label = "答案错误 · 可继续重做" %}
+            {% endif %}
+        {% elif state.status == "timeout" %}
+            {% set state_label = "运行超时 · 可继续重做" %}
+        {% elif state.status == "runtime_error" %}
+            {% set state_label = "运行错误 · 可继续重做" %}
+        {% endif %}
+        <p class="exercise-state-row">
+            <span class="exercise-state is-{{ state.status }}">{{ state_label }}</span>
+        </p>
+    {% endif %}
+
+    {% if exercise.description %}
+        <p class="exercise-desc">{{ exercise.description }}</p>
+    {% endif %}
+
+    {% if is_local %}
+        <div class="local-task">
+            <ol class="local-task-steps">
+                {% for step in exercise.steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+
+            {% if exercise.starter_code %}
+            <div class="local-task-code">
+                <div class="local-task-code-head">
+                    <span>起步代码</span>
+                </div>
+                <pre><code>{{ exercise.starter_code }}</code></pre>
+            </div>
+            {% endif %}
+
+            {% if exercise.common_errors %}
+            <div class="local-task-errors">
+                <h4>常见报错</h4>
+                <ul>
+                    {% for error in exercise.common_errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <details class="local-task-answer">
+                <summary>参考答案（先自己跑一遍再看）</summary>
+                <p>{{ exercise.answer }}</p>
+                {% if exercise.answer_code %}
+                <pre><code>{{ exercise.answer_code }}</code></pre>
+                {% endif %}
+            </details>
+
+            <div class="exercise-result" data-local-result hidden aria-live="polite"></div>
+
+            <footer class="exercise-foot">
+                <span class="exercise-hint">
+                    {% if is_accepted %}已完成，可重新练习{% else %}完成后点击标记完成{% endif %}
+                </span>
+                <button
+                    class="btn btn-primary btn-small"
+                    type="button"
+                    data-complete-exercise="{{ exercise.id }}"
+                    {% if is_accepted %}hidden{% endif %}
+                    disabled
+                >标记完成</button>
+                <button
+                    class="btn btn-ghost btn-small"
+                    type="button"
+                    data-reset-local="{{ exercise.id }}"
+                    {% if not is_accepted %}hidden{% endif %}
+                    disabled
+                >重新练习</button>
+            </footer>
+        </div>
+    {% else %}
+        {% if judge_disabled %}
+        <div class="v-callout is-warn">
+            <strong>线上暂不开放编程判题</strong>
+            <p>当前部署关闭了代码执行，你仍然可以阅读题目和测试用例。</p>
+        </div>
+        {% endif %}
+        <form
+            class="exercise-form"
+            data-exercise-id="{{ exercise.id }}"
+            data-exercise-type="{{ exercise.type }}"
+        >
+            {% if exercise.type == "single_choice" %}
+                <ul class="option-list">
+                    {% for option in exercise.options %}
+                    <li>
+                        <label>
+                            <input
+                                type="radio"
+                                name="answer_index"
+                                value="{{ loop.index0 }}"
+                                required
+                                {% if state and state.last_index == loop.index0 %}checked{% endif %}
+                                {% if is_accepted %}disabled{% endif %}
+                            >
+                            <span>{{ option }}</span>
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% elif exercise.type == "fill_blank" %}
+                <label class="fill-field">
+                    <span>你的答案</span>
+                    <input
+                        class="form-input"
+                        type="text"
+                        name="answer"
+                        value="{{ state.last_answer if state and state.last_answer else '' }}"
+                        placeholder="在这里填写答案"
+                        autocomplete="off"
+                        required
+                        {% if is_accepted %}disabled{% endif %}
+                    >
+                </label>
+            {% elif exercise.type == "trajectory_task" %}
+                <div class="trajectory-editor">
+                    <label class="editor-field">
+                        <span>轨迹 JSON</span>
+                        <textarea
+                            class="code-input trajectory-input"
+                            name="trajectory"
+                            rows="14"
+                            spellcheck="false"
+                            placeholder="粘贴你本机运行后导出的 trajectory.json"
+                            required
+                            {% if is_accepted %}readonly{% endif %}
+                        >{{ state.last_answer if state and state.last_answer else "" }}</textarea>
+                    </label>
+                    <div class="trajectory-actions">
+                        <button
+                            class="btn btn-ghost btn-small"
+                            type="button"
+                            data-preview-trajectory="{{ exercise.id }}"
+                            disabled
+                        >解析并预览</button>
+                        <span class="trajectory-note">只解析 JSON，不执行代码、不调用模型</span>
+                    </div>
+                    <details class="testcase-panel trajectory-example">
+                        <summary>查看示例格式（仅参考，请提交真实轨迹）</summary>
+                        <p class="testcase-note">示例只用于对照字段与结构；直接提交示例不算完成，请粘贴你本机运行导出的轨迹。</p>
+                        <pre><code>{{ exercise.starter_example }}</code></pre>
+                    </details>
+                    <div class="trajectory-view" data-trajectory-view hidden></div>
+                </div>
+            {% else %}
+                <label class="editor-field">
+                    <span>代码</span>
+                    <textarea
+                        class="code-input"
+                        name="code"
+                        rows="10"
+                        spellcheck="false"
+                        required
+                        {% if is_accepted %}readonly{% endif %}
+                    >{{ state.last_answer if state and state.last_answer else exercise.starter_code }}</textarea>
+                </label>
+            {% endif %}
+
+            {% if exercise.type == "coding" %}
+                <details class="testcase-panel">
+                    <summary>查看测试用例（{{ exercise.test_cases|length }} 个）</summary>
+                    <p class="testcase-note">这些用例用于自测；提交后会运行全部用例并显示结果。</p>
+                    <ol class="testcase-list">
+                        {% for case in exercise.test_cases %}
+                        <li class="testcase-item">
+                            <div class="testcase-head">用例 {{ loop.index }}</div>
+                            <div class="testcase-values">
+                                <div>
+                                    <span class="testcase-label">输入</span>
+                                    <pre>{{ case.stdin or "（无输入）" }}</pre>
+                                </div>
+                                <div>
+                                    <span class="testcase-label">期望输出</span>
+                                    <pre>{{ case.expected_stdout }}</pre>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </details>
+                {% if exercise.answer_code %}
+                <details class="testcase-panel coding-answer">
+                    <summary>参考答案（先自己尝试，实在不会再点开）</summary>
+                    <p class="testcase-note">参考答案只用于对照思路，正确写法可能不止一种。</p>
+                    <pre><code>{{ exercise.answer_code }}</code></pre>
+                </details>
+                {% endif %}
+            {% elif exercise.type == "trajectory_task" %}
+                <details class="testcase-panel">
+                    <summary>查看判定规则（{{ exercise.rules|length }} 条）</summary>
+                    <p class="testcase-note">平台只校验轨迹结构与规则，不执行代码、不访问网络。</p>
+                    <ul class="rule-list rule-list-preview">
+                        {% for rule in exercise.rules %}
+                        <li class="rule-row">
+                            <span class="rule-label">{{ rule.label }}</span>
+                            <span class="rule-detail">{{ rule.summary }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </details>
+            {% endif %}
+
+            <div class="exercise-result" data-result hidden aria-live="polite"></div>
+
+            <footer class="exercise-foot">
+                <span class="exercise-hint">
+                    {% if judge_disabled %}编程判题已关闭{% elif is_accepted %}本题已通过，点击重做可再次练习{% elif exercise.type == "trajectory_task" %}提交后检查轨迹规则{% else %}提交后立即判题{% endif %}
+                </span>
+                <!-- JS 初始化完成后再启用，避免脚本未就绪时表单以 GET 方式刷新页面 -->
+                <button class="btn btn-primary btn-small" type="submit" {% if is_accepted or judge_disabled %}hidden{% endif %} disabled>提交</button>
+                <button
+                    class="btn btn-ghost btn-small"
+                    type="button"
+                    data-redo-exercise="{{ exercise.id }}"
+                    {% if not is_accepted %}hidden{% endif %}
+                    disabled
+                >重做</button>
+            </footer>
+        </form>
+    {% endif %}
+</article>

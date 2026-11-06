@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}注册 · 从零开始Agent学习{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-intro">
+        <p class="eyebrow">START HERE</p>
+        <h1>从第一课开始，<br>把路<em>走出来</em>。</h1>
+        <p class="auth-lead">
+            不需要先学完所有语法。沿着路线走，学一节、练一节，
+            最后做出一个能运行的 Web 应用，再进入 Agent 开发。
+        </p>
+
+        <div class="auth-note">
+            <span>账号只保存在本机</span>
+            <code>不收集邮箱与手机号</code>
+        </div>
+    </div>
+
+    <div class="auth-card">
+        <h2>创建账号</h2>
+
+        {% if error %}
+            <p class="form-error">{{ error }}</p>
+        {% endif %}
+
+        <form class="auth-form" method="post" action="/register">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <label class="form-field">
+                <span>用户名</span>
+                <input
+                    class="form-input"
+                    type="text"
+                    name="username"
+                    value="{{ username or '' }}"
+                    autocomplete="username"
+                    minlength="3"
+                    maxlength="20"
+                    required
+                >
+                <small>3~20 个字符，可使用中文、字母、数字和下划线</small>
+            </label>
+
+            <label class="form-field">
+                <span>密码</span>
+                <input
+                    class="form-input"
+                    type="password"
+                    name="password"
+                    autocomplete="new-password"
+                    minlength="6"
+                    maxlength="64"
+                    required
+                >
+            </label>
+
+            <label class="form-field">
+                <span>确认密码</span>
+                <input
+                    class="form-input"
+                    type="password"
+                    name="confirm_password"
+                    autocomplete="new-password"
+                    minlength="6"
+                    maxlength="64"
+                    required
+                >
+            </label>
+
+            <button class="btn btn-primary" type="submit">注册并开始学习</button>
+        </form>
+
+        <p class="auth-switch">
+            已经有账号？<a href="/login">去登录</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

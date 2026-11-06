@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">变量是带标签的盒子</title>
+  <desc id="desc">盒子上的标签是变量名 age，盒子里的 18 是变量的值。</desc>
+
+  <text x="44" y="56" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" letter-spacing="2">变量名 = 标签</text>
+  <text x="44" y="82" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">值是盒子里的内容</text>
+
+  <rect x="196" y="96" width="328" height="132" rx="16" fill="#fffcf5" stroke="#b9ad99" stroke-width="2"/>
+  <path d="M 196 128 L 196 96 L 300 96 L 300 128 Z" fill="#f0e5d2" stroke="#b9ad99" stroke-width="2"/>
+  <text x="248" y="118" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="15">age</text>
+  <text x="360" y="180" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="46">18</text>
+
+  <path d="M 548 130 C 590 130 600 160 560 178" fill="none" stroke="#4d7c0f" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="566" y="206" fill="#4d7c0f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">值可以是数字、</text>
+  <text x="566" y="226" fill="#4d7c0f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">文字或其他对象</text>
+
+  <text x="360" y="272" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">age = 18 就是把 18 放进名为 age 的盒子。</text>
+</svg>

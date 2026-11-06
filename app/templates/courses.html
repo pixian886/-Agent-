@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}课程 · 从零开始Agent学习{% endblock %}
+
+{% block content %}
+<section class="course-catalog">
+    <header class="course-catalog-head">
+        <p class="eyebrow">COURSES</p>
+        <h1>选择你的课程</h1>
+        <p class="roadmap-subtitle">
+            先从 Python 打基础，再进入 Agent 开发。两门课程的进度各自独立。
+        </p>
+    </header>
+
+    <div class="course-grid">
+        {% for item in course_items %}
+        <article class="course-card">
+            <div class="course-card-head">
+                <span class="badge">{{ item.course.id|upper }}</span>
+                {% if item.prerequisite_course %}
+                <span class="course-prerequisite-badge">
+                    先修：{{ item.prerequisite_course.title }}
+                    {% if item.prerequisite_completed %} · 已完成{% else %} · 未完成{% endif %}
+                </span>
+                {% endif %}
+            </div>
+
+            <h2>{{ item.course.title }}</h2>
+            <p>{{ item.course.description or "沿着课程路线学习。" }}</p>
+
+            <div class="course-meta">
+                <span>{{ item.course.total_lessons }} 课</span>
+                <span>完成度 {{ item.progress }}%</span>
+            </div>
+
+            <div
+                class="progress-track"
+                role="progressbar"
+                aria-valuenow="{{ item.progress }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+            >
+                <div class="progress-fill" style="width: {{ item.progress }}%"></div>
+            </div>
+
+            {% if item.prerequisite_course and not item.prerequisite_completed %}
+            <p class="course-prerequisite-note">
+                建议先完成 {{ item.prerequisite_course.title }}；也可以先浏览。
+            </p>
+            {% endif %}
+
+            <a class="btn btn-primary" href="/courses/{{ item.course.id }}/roadmap">
+                进入课程
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

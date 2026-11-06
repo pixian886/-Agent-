@@ -1,0 +1,116 @@
+{
+  "course_title": "Python 从零到 Web 应用 · Agent 先修",
+  "course_description": "从环境配置、语法、JSON、HTTP 到 SQLite 与 FastAPI，做出一个可运行的 Web 应用，为 Agent 开发打基础。",
+  "stages": [
+    {
+      "id": "s1",
+      "title": "第一章 环境配置",
+      "lesson_ids": ["l01"]
+    },
+    {
+      "id": "s2",
+      "title": "第二章 基础语法",
+      "lesson_ids": ["l02", "l03"]
+    },
+    {
+      "id": "s3",
+      "title": "第三章 核心语法",
+      "lesson_ids": ["l04", "l05", "l06"]
+    },
+    {
+      "id": "s4",
+      "title": "第四章 连接外部世界",
+      "lesson_ids": ["l07", "l08", "l09"]
+    },
+    {
+      "id": "s5",
+      "title": "第五章 数据库",
+      "lesson_ids": ["l10"]
+    },
+    {
+      "id": "s6",
+      "title": "第六章 Web 实战",
+      "lesson_ids": ["l11"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "l01",
+      "stage_id": "s1",
+      "title": "安装 Python 并运行第一个程序",
+      "content_file": "lessons/l01.md",
+      "exercise_ids": ["e01", "e02", "e12"]
+    },
+    {
+      "id": "l02",
+      "stage_id": "s2",
+      "title": "变量与数据类型",
+      "content_file": "lessons/l02.md",
+      "exercise_ids": ["e03", "e04"]
+    },
+    {
+      "id": "l03",
+      "stage_id": "s2",
+      "title": "条件与循环",
+      "content_file": "lessons/l03.md",
+      "exercise_ids": ["e05", "e06", "e07"]
+    },
+    {
+      "id": "l04",
+      "stage_id": "s3",
+      "title": "函数",
+      "content_file": "lessons/l04.md",
+      "exercise_ids": ["e08", "e13"]
+    },
+    {
+      "id": "l05",
+      "stage_id": "s3",
+      "title": "列表与字典",
+      "content_file": "lessons/l05.md",
+      "exercise_ids": ["e09", "e14"]
+    },
+    {
+      "id": "l06",
+      "stage_id": "s3",
+      "title": "类与对象",
+      "content_file": "lessons/l06.md",
+      "exercise_ids": ["e10"]
+    },
+    {
+      "id": "l07",
+      "stage_id": "s4",
+      "title": "JSON 与文件读写",
+      "content_file": "lessons/l07.md",
+      "exercise_ids": ["e15", "e16"]
+    },
+    {
+      "id": "l08",
+      "stage_id": "s4",
+      "title": "HTTP 与真实 API",
+      "content_file": "lessons/l08.md",
+      "exercise_ids": ["e17", "e18"]
+    },
+    {
+      "id": "l09",
+      "stage_id": "s4",
+      "title": "异常、环境变量与密钥",
+      "content_file": "lessons/l09.md",
+      "exercise_ids": ["e19", "e20", "e21"]
+    },
+    {
+      "id": "l10",
+      "stage_id": "s5",
+      "title": "SQLite 与 CRUD",
+      "content_file": "lessons/l10.md",
+      "exercise_ids": ["e11"]
+    },
+    {
+      "id": "l11",
+      "stage_id": "s6",
+      "title": "用 FastAPI 做留言板",
+      "content_file": "lessons/l11.md",
+      "kind": "project",
+      "exercise_ids": []
+    }
+  ]
+}

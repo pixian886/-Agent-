@@ -1,0 +1,17 @@
+启动方式：双击 start.bat（或执行 python run.py）
+
+实际启动输出：
+Starting Agent Learning from Zero...
+从零开始Agent学习已启动：http://127.0.0.1:8000
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Application startup complete.
+
+健康检查：
+GET http://127.0.0.1:8000/health
+HTTP 200
+{"status":"ok","database":"ok"}
+
+环境：
+Windows 10/11
+Python 3.13.12（要求 3.10+）
+依赖安装：pip install -r requirements.txt

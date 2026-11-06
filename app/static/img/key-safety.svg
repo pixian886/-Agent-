@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">API Key 的安全存放方式</title>
+  <desc id="desc">Key 放在 .env 文件中，通过环境变量读取，不写进代码、日志或 Git。</desc>
+
+  <rect x="40" y="70" width="200" height="140" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="140" y="106" text-anchor="middle" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" letter-spacing="2">.env</text>
+  <text x="140" y="142" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="14">API_KEY=...</text>
+  <text x="140" y="176" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">只放本机，不提交 Git</text>
+
+  <rect x="300" y="70" width="180" height="140" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="390" y="106" text-anchor="middle" fill="#4d7c0f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">代码</text>
+  <text x="390" y="142" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="13">os.getenv("API_KEY")</text>
+  <text x="390" y="176" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">从环境变量读取</text>
+
+  <rect x="540" y="70" width="140" height="140" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="610" y="106" text-anchor="middle" fill="#b42318" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">不要</text>
+  <text x="610" y="138" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">写进代码</text>
+  <text x="610" y="160" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">写进日志</text>
+  <text x="610" y="182" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">提交 Git</text>
+
+  <line x1="246" y1="140" x2="290" y2="140" stroke="#b4442a" stroke-width="3"/>
+  <line x1="486" y1="140" x2="530" y2="140" stroke="#b42318" stroke-width="3"/>
+
+  <text x="360" y="250" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">换 Key 时只改 .env，代码不用动；仓库里只提交 .env.example。</text>
+</svg>

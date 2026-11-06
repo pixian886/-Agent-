@@ -1,0 +1,223 @@
+{
+  "course_title": "Agent 开发：从 API 到多智能体",
+  "course_description": "从真实 LLM API 到工具、ReAct、RAG、MCP、评估与多 Agent，最终交付一个可运行、可部署的 Agent 项目。",
+  "stages": [
+    {
+      "id": "s0",
+      "title": "第 0 章 AI 时代名词地图",
+      "lesson_ids": ["a00"]
+    },
+    {
+      "id": "s1",
+      "title": "第 1 章 LLM 与真实 API",
+      "lesson_ids": ["a01", "a02", "a03"]
+    },
+    {
+      "id": "s2",
+      "title": "第 2 章 工具调用",
+      "lesson_ids": ["a04", "a05", "a06"]
+    },
+    {
+      "id": "s3",
+      "title": "第 3 章 ReAct",
+      "lesson_ids": ["a07", "a08", "a09"]
+    },
+    {
+      "id": "s4",
+      "title": "第 4 章 记忆与 RAG",
+      "lesson_ids": ["a10", "a11", "a12"]
+    },
+    {
+      "id": "s5",
+      "title": "第 5 章 上下文工程与 MCP",
+      "lesson_ids": ["a13", "a14", "a15"]
+    },
+    {
+      "id": "s6",
+      "title": "第 6 章 评估、安全与成本",
+      "lesson_ids": ["a16", "a17", "a18"]
+    },
+    {
+      "id": "s7",
+      "title": "第 7 章 多 Agent 与框架对照",
+      "lesson_ids": ["a19", "a20", "a21"]
+    },
+    {
+      "id": "s8",
+      "title": "结业项目",
+      "lesson_ids": ["a22", "a23"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a00",
+      "stage_id": "s0",
+      "title": "AI 时代名词地图",
+      "content_file": "agent_lessons/a00.md",
+      "exercise_ids": ["ag00", "ag01"]
+    },
+    {
+      "id": "a01",
+      "stage_id": "s1",
+      "title": "从一次 API 调用开始",
+      "content_file": "agent_lessons/a01.md",
+      "exercise_ids": ["ag03", "ag04"]
+    },
+    {
+      "id": "a02",
+      "stage_id": "s1",
+      "title": "消息、提示词与参数",
+      "content_file": "agent_lessons/a02.md",
+      "exercise_ids": ["ag05", "ag06", "ag34", "ag35"]
+    },
+    {
+      "id": "a03",
+      "stage_id": "s1",
+      "title": "错误、重试与成本",
+      "content_file": "agent_lessons/a03.md",
+      "exercise_ids": ["ag07", "ag08"]
+    },
+    {
+      "id": "a04",
+      "stage_id": "s2",
+      "title": "工具三要素",
+      "content_file": "agent_lessons/a04.md",
+      "exercise_ids": ["ag09"]
+    },
+    {
+      "id": "a05",
+      "stage_id": "s2",
+      "title": "工具注册表",
+      "content_file": "agent_lessons/a05.md",
+      "exercise_ids": ["ag10"]
+    },
+    {
+      "id": "a06",
+      "stage_id": "s2",
+      "title": "真实工具与失败处理",
+      "content_file": "agent_lessons/a06.md",
+      "exercise_ids": ["ag11", "ag12"]
+    },
+    {
+      "id": "a07",
+      "stage_id": "s3",
+      "title": "思考-行动-观察",
+      "content_file": "agent_lessons/a07.md",
+      "exercise_ids": ["ag13"]
+    },
+    {
+      "id": "a08",
+      "stage_id": "s3",
+      "title": "手写 ReAct 循环",
+      "content_file": "agent_lessons/a08.md",
+      "exercise_ids": ["ag14"]
+    },
+    {
+      "id": "a09",
+      "stage_id": "s3",
+      "title": "轨迹与失败模式",
+      "content_file": "agent_lessons/a09.md",
+      "exercise_ids": ["ag02"]
+    },
+    {
+      "id": "a10",
+      "stage_id": "s4",
+      "title": "对话记忆",
+      "content_file": "agent_lessons/a10.md",
+      "exercise_ids": ["ag15"]
+    },
+    {
+      "id": "a11",
+      "stage_id": "s4",
+      "title": "分块与检索",
+      "content_file": "agent_lessons/a11.md",
+      "exercise_ids": ["ag16"]
+    },
+    {
+      "id": "a12",
+      "stage_id": "s4",
+      "title": "RAG 管道",
+      "content_file": "agent_lessons/a12.md",
+      "exercise_ids": ["ag17", "ag18"]
+    },
+    {
+      "id": "a13",
+      "stage_id": "s5",
+      "title": "上下文工程",
+      "content_file": "agent_lessons/a13.md",
+      "exercise_ids": ["ag19"]
+    },
+    {
+      "id": "a14",
+      "stage_id": "s5",
+      "title": "MCP",
+      "content_file": "agent_lessons/a14.md",
+      "exercise_ids": ["ag20", "ag21"]
+    },
+    {
+      "id": "a15",
+      "stage_id": "s5",
+      "title": "工具安全",
+      "content_file": "agent_lessons/a15.md",
+      "exercise_ids": ["ag22"]
+    },
+    {
+      "id": "a16",
+      "stage_id": "s6",
+      "title": "评测集与指标",
+      "content_file": "agent_lessons/a16.md",
+      "exercise_ids": ["ag23", "ag24"]
+    },
+    {
+      "id": "a17",
+      "stage_id": "s6",
+      "title": "轨迹规则",
+      "content_file": "agent_lessons/a17.md",
+      "exercise_ids": ["ag25"]
+    },
+    {
+      "id": "a18",
+      "stage_id": "s6",
+      "title": "成本与限流",
+      "content_file": "agent_lessons/a18.md",
+      "exercise_ids": ["ag26", "ag27"]
+    },
+    {
+      "id": "a19",
+      "stage_id": "s7",
+      "title": "多 Agent 角色",
+      "content_file": "agent_lessons/a19.md",
+      "exercise_ids": ["ag28"]
+    },
+    {
+      "id": "a20",
+      "stage_id": "s7",
+      "title": "编排与冲突",
+      "content_file": "agent_lessons/a20.md",
+      "exercise_ids": ["ag29"]
+    },
+    {
+      "id": "a21",
+      "stage_id": "s7",
+      "title": "框架对照",
+      "content_file": "agent_lessons/a21.md",
+      "exercise_ids": ["ag30"]
+    },
+    {
+      "id": "a22",
+      "stage_id": "s8",
+      "title": "项目设计",
+      "content_file": "agent_lessons/a22.md",
+      "kind": "project",
+      "exercise_ids": ["ag31", "ag36"]
+    },
+    {
+      "id": "a23",
+      "stage_id": "s8",
+      "title": "交付与演示",
+      "content_file": "agent_lessons/a23.md",
+      "kind": "project",
+      "exercise_ids": ["ag32", "ag33"]
+    }
+  ]
+}

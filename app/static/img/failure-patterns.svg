@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-labelledby="title desc">
+  <title id="title">三类常见失败轨迹</title>
+  <desc id="desc">循环、工具误用与幻觉是 Agent 轨迹里最常见的三类失败。</desc>
+
+  <rect x="24" y="52" width="226" height="246" rx="14" fill="#fffcf5" stroke="#b42318"/>
+  <text x="137" y="84" text-anchor="middle" fill="#b42318" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold">循环</text>
+  <text x="137" y="112" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">同一个动作反复出现</text>
+  <text x="44" y="144" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">thought: 再查一次</text>
+  <text x="44" y="166" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">action: search(...)</text>
+  <text x="44" y="188" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">observation: 相同结果</text>
+  <text x="44" y="210" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">thought: 再查一次</text>
+  <text x="44" y="232" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">action: search(...)</text>
+  <text x="137" y="270" text-anchor="middle" fill="#b42318" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">缺最大步数与终止条件</text>
+
+  <rect x="267" y="52" width="226" height="246" rx="14" fill="#fffcf5" stroke="#b7791f"/>
+  <text x="380" y="84" text-anchor="middle" fill="#b7791f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold">工具误用</text>
+  <text x="380" y="112" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">工具或参数选错</text>
+  <text x="287" y="144" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">action: get_weather</text>
+  <text x="287" y="166" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">args: {"city": "背景"}</text>
+  <text x="287" y="188" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">observation: 找不到城市</text>
+  <text x="287" y="210" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">action: query_orders</text>
+  <text x="287" y="232" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">args: {"city": "北京"}</text>
+  <text x="380" y="270" text-anchor="middle" fill="#b7791f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">描述或参数 schema 不清</text>
+
+  <rect x="510" y="52" width="226" height="246" rx="14" fill="#fffcf5" stroke="#b4442a"/>
+  <text x="623" y="84" text-anchor="middle" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold">幻觉</text>
+  <text x="623" y="112" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">答案没有来自观察</text>
+  <text x="530" y="144" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">observation: 没有找到订单</text>
+  <text x="530" y="166" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">finish: 共 5 单，已发货</text>
+  <text x="530" y="188" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">final_answer: 5 单已发货</text>
+  <text x="623" y="270" text-anchor="middle" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">答案必须能追溯到工具结果</text>
+
+  <text x="380" y="326" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">轨迹题检查的就是这些可观察信号：步数、工具、顺序、错误与最终答案。</text>
+</svg>

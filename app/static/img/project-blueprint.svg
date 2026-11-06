@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="title desc">
+  <title id="title">结业项目蓝图</title>
+  <desc id="desc">用户经界面进入 Agent 循环，循环调用工具并读写状态，最后产出答案与轨迹。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b4442a"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="34" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="15" font-weight="bold">能交付的 Agent 项目 = 入口 + 循环 + 工具 + 状态 + 评测</text>
+
+  <rect x="34" y="74" width="126" height="64" rx="12" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="97" y="99" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold">用户</text>
+  <text x="97" y="121" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">带着具体任务</text>
+
+  <rect x="196" y="74" width="146" height="64" rx="12" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="269" y="99" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13" font-weight="bold">界面 / CLI</text>
+  <text x="269" y="121" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">输入问题，展示答案</text>
+
+  <rect x="380" y="54" width="214" height="104" rx="14" fill="#fffcf5" stroke="#b4442a" stroke-width="2"/>
+  <text x="487" y="80" text-anchor="middle" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" font-weight="bold">Agent 循环</text>
+  <text x="487" y="104" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">LLM + tools + loop + state</text>
+  <text x="487" y="126" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">最大步数 · 终止条件</text>
+  <text x="487" y="146" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">错误作为 observation</text>
+
+  <rect x="632" y="74" width="96" height="64" rx="12" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="680" y="99" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold">答案</text>
+  <text x="680" y="121" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">带引用</text>
+
+  <line x1="164" y1="106" x2="188" y2="106" stroke="#b4442a" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="346" y1="106" x2="372" y2="106" stroke="#b4442a" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="598" y1="106" x2="624" y2="106" stroke="#b4442a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="190" y="194" width="170" height="56" rx="10" fill="#f4efe4" stroke="#d8cfc0"/>
+  <text x="275" y="216" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">query_orders</text>
+  <text x="275" y="236" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">查订单</text>
+
+  <rect x="382" y="194" width="170" height="56" rx="10" fill="#f4efe4" stroke="#d8cfc0"/>
+  <text x="467" y="216" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">search_docs</text>
+  <text x="467" y="236" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">检索政策</text>
+
+  <rect x="574" y="194" width="154" height="56" rx="10" fill="#f4efe4" stroke="#d8cfc0"/>
+  <text x="651" y="216" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="11">read_doc</text>
+  <text x="651" y="236" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">读取片段</text>
+
+  <line x1="460" y1="158" x2="300" y2="188" stroke="#6b6b5e" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="487" y1="158" x2="480" y2="188" stroke="#6b6b5e" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="510" y1="158" x2="628" y2="188" stroke="#6b6b5e" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <rect x="86" y="278" width="588" height="54" rx="12" fill="#fffcf5" stroke="#b9ad99" stroke-dasharray="6 4"/>
+  <text x="380" y="300" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold">状态与证据</text>
+  <text x="380" y="320" text-anchor="middle" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">SQLite · trajectory.json · README · 评测记录</text>
+</svg>

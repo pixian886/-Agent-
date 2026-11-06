@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" role="img" aria-labelledby="title desc">
+  <title id="title">对话记忆：带时间戳的表与窗口</title>
+  <desc id="desc">消息按时间写入 SQLite 表，system 固定保留，只把最近 N 条放进上下文。</desc>
+
+  <text x="40" y="36" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16" font-weight="bold">记忆不是“记住”，而是把消息存进表，再取一个窗口</text>
+
+  <rect x="40" y="58" width="500" height="224" rx="12" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="60" y="84" fill="#b4442a" font-family="Consolas, Courier New, monospace" font-size="12">messages</text>
+
+  <rect x="56" y="96" width="468" height="28" fill="#ece4d4"/>
+  <text x="68" y="115" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">id</text>
+  <text x="108" y="115" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">role</text>
+  <text x="196" y="115" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">content</text>
+  <text x="410" y="115" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">created_at</text>
+
+  <rect x="56" y="126" width="468" height="30" rx="4" fill="#fffcf5" stroke="#b4442a"/>
+  <text x="68" y="146" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">1</text>
+  <text x="108" y="146" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">system</text>
+  <text x="196" y="146" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">你是简洁的助教</text>
+  <text x="410" y="146" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">09:00</text>
+
+  <rect x="56" y="158" width="468" height="30" fill="#fffcf5"/>
+  <text x="68" y="178" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">2</text>
+  <text x="108" y="178" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">user</text>
+  <text x="196" y="178" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">列表和元组怎么选？</text>
+  <text x="410" y="178" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">09:01</text>
+
+  <rect x="56" y="190" width="468" height="30" fill="#fffcf5"/>
+  <text x="68" y="210" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">3</text>
+  <text x="108" y="210" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">assistant</text>
+  <text x="196" y="210" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">可变用列表，不可变用元组</text>
+  <text x="410" y="210" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">09:02</text>
+
+  <rect x="56" y="222" width="468" height="30" fill="#f4efe4" stroke="#b4442a"/>
+  <text x="68" y="242" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">4</text>
+  <text x="108" y="242" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">user</text>
+  <text x="196" y="242" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">那什么时候用元组？</text>
+  <text x="410" y="242" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">09:03</text>
+
+  <rect x="56" y="254" width="468" height="24" fill="#f4efe4" stroke="#b4442a"/>
+  <text x="68" y="271" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">5</text>
+  <text x="108" y="271" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="10">assistant</text>
+  <text x="196" y="271" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">配置、坐标这类不变的数据</text>
+  <text x="410" y="271" fill="#6b6b5e" font-family="Consolas, Courier New, monospace" font-size="10">09:04</text>
+
+  <rect x="570" y="88" width="150" height="146" rx="12" fill="#fffcf5" stroke="#b9ad99" stroke-dasharray="6 4"/>
+  <text x="645" y="114" text-anchor="middle" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12" font-weight="bold">取窗口</text>
+  <text x="645" y="140" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">system 固定保留</text>
+  <text x="645" y="164" text-anchor="middle" fill="#1f2933" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="11">最近 N 条消息</text>
+  <text x="645" y="188" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">旧消息留在表里</text>
+  <text x="645" y="208" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="10">不一定进上下文</text>
+
+  <text x="380" y="312" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">窗口决定成本与延迟；长期记忆需要摘要或检索，而不是无限追加。</text>
+</svg>

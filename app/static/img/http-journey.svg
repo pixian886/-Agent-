@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">一次 HTTP 请求的旅程</title>
+  <desc id="desc">客户端发送请求，服务端返回状态码和 JSON 响应。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b4442a"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4d7c0f"/>
+    </marker>
+  </defs>
+
+  <rect x="40" y="80" width="180" height="120" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="130" y="116" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">你的程序</text>
+  <text x="130" y="148" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="15">requests.get</text>
+  <text x="130" y="176" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">客户端</text>
+
+  <rect x="500" y="80" width="180" height="120" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="590" y="116" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">API 服务</text>
+  <text x="590" y="148" text-anchor="middle" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="15">/weather</text>
+  <text x="590" y="176" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">服务端</text>
+
+  <line x1="226" y1="112" x2="490" y2="112" stroke="#b4442a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="358" y="100" text-anchor="middle" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">GET /weather?city=beijing</text>
+
+  <line x1="490" y1="168" x2="226" y2="168" stroke="#4d7c0f" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="358" y="190" text-anchor="middle" fill="#4d7c0f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">200 + {"city": "北京", "temperature": 26}</text>
+
+  <text x="360" y="244" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">先看状态码，再用 response.json() 解析响应体。</text>
+  <text x="360" y="266" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">请求要设置 timeout，失败要捕获异常。</text>
+</svg>

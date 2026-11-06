@@ -1,0 +1,67 @@
+services:
+  judge-image:
+    build:
+      context: ..
+      dockerfile: deploy/judge.Dockerfile
+    image: plg-judge:latest
+    command: ["true"]
+    restart: "no"
+
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: plg-app:latest
+    env_file:
+      - ../.env
+    environment:
+      APP_ENV: production
+      HOST: 0.0.0.0
+      PORT: "8000"
+      HTTPS_ONLY: "true"
+      TRUST_PROXY: "true"
+      JUDGE_MODE: docker
+      JUDGE_DOCKER_IMAGE: plg-judge:latest
+      JUDGE_CONCURRENCY: "2"
+      DATABASE_URL: sqlite:////app/data/app.db
+    volumes:
+      # 持久化 SQLite 与会话密钥
+      - ../data:/app/data
+      # 让应用容器调用宿主机 Docker 启动判题容器
+      - /var/run/docker.sock:/var/run/docker.sock
+    expose:
+      - "8000"
+    depends_on:
+      judge-image:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  caddy:
+    image: caddy:2
+    env_file:
+      - ../.env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}学习路线 · {{ course.title }}{% endblock %}
+
+{% block content %}
+<section class="roadmap">
+    <header class="roadmap-head">
+        <p class="eyebrow">LEARNING PATH</p>
+        <h1>{{ course.title }}</h1>
+        <p class="roadmap-subtitle">
+            你好，{{ user.username }}。沿着目录往下走，学一节，练一节。
+        </p>
+        {% if course.description %}
+            <p class="roadmap-description">{{ course.description }}</p>
+        {% endif %}
+
+        <div class="roadmap-progress">
+            <div class="progress-meta">
+                <span>完成度</span>
+                <strong>{{ progress_percent }}%</strong>
+            </div>
+            <div
+                class="progress-track"
+                role="progressbar"
+                aria-valuenow="{{ progress_percent }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+            >
+                <div class="progress-fill" style="width: {{ progress_percent }}%"></div>
+            </div>
+        </div>
+
+        {% if continue_lesson %}
+            <a class="btn btn-primary" href="/courses/{{ course.id }}/lessons/{{ continue_lesson.id }}">
+                继续学习：{{ continue_lesson.title }}
+            </a>
+        {% else %}
+            <span class="btn btn-ghost is-disabled">全部完成</span>
+        {% endif %}
+    </header>
+
+    {% if prerequisite_course and not prerequisite_completed %}
+    <div class="v-callout is-tip roadmap-prerequisite">
+        <strong>建议先完成 {{ prerequisite_course.title }}</strong>
+        <p>本课程默认你已掌握 Python、JSON、HTTP 与 .env。也可以先浏览，遇到基础问题再回补。</p>
+        <a href="/courses/{{ prerequisite_course.id }}/roadmap">去先修课程 →</a>
+    </div>
+    {% endif %}
+
+    <div class="chapter-list">
+        {% for stage in course.stages %}
+        <article class="chapter">
+            <header class="chapter-head">
+                <span class="chapter-index">{{ "%02d"|format(loop.index) }}</span>
+                <h2>{{ stage.title }}</h2>
+                <span class="chapter-count">{{ stage.lessons|length }} 课</span>
+            </header>
+
+            <ul class="lesson-list">
+                {% for lesson in stage.lessons %}
+                {% set is_completed = lesson.id in completed_lesson_ids %}
+                {% set is_current = continue_lesson and lesson.id == continue_lesson.id %}
+                <li class="lesson-row {% if is_completed %}is-completed{% elif is_current %}is-current{% endif %}">
+                    <a href="/courses/{{ course.id }}/lessons/{{ lesson.id }}">
+                        <span class="lesson-code">{{ lesson.id|upper }}</span>
+                        <span class="lesson-title">{{ lesson.title }}</span>
+                        <span class="lesson-status">
+                            {% if is_completed %}已完成{% elif is_current %}继续学习{% else %}未开始{% endif %}
+                        </span>
+                        <span class="lesson-arrow" aria-hidden="true">→</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

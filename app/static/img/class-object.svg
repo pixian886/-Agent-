@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">类与对象</title>
+  <desc id="desc">类是图纸，对象是按图纸创建出来的实例。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b4442a"/>
+    </marker>
+  </defs>
+
+  <rect x="40" y="58" width="270" height="220" rx="14" fill="#fffcf5" stroke="#d8cfc0"/>
+  <text x="60" y="92" fill="#b4442a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" letter-spacing="2">类：图纸</text>
+  <text x="60" y="126" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="18">class Student:</text>
+  <text x="76" y="158" fill="#4a4a40" font-family="Consolas, Courier New, monospace" font-size="14">name</text>
+  <text x="76" y="184" fill="#4a4a40" font-family="Consolas, Courier New, monospace" font-size="14">score</text>
+  <text x="76" y="210" fill="#4a4a40" font-family="Consolas, Courier New, monospace" font-size="14">is_pass()</text>
+  <text x="60" y="252" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">定义一类对象共有的属性与方法</text>
+
+  <line x1="318" y1="168" x2="374" y2="168" stroke="#b4442a" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="346" y="150" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">创建</text>
+
+  <rect x="384" y="58" width="296" height="220" rx="14" fill="#fffcf5" stroke="#b9ad99" stroke-width="2"/>
+  <text x="404" y="92" fill="#4d7c0f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" letter-spacing="2">对象：实例</text>
+  <text x="404" y="126" fill="#1f2933" font-family="Consolas, Courier New, monospace" font-size="18">student = Student(...)</text>
+  <text x="420" y="160" fill="#4a4a40" font-family="Consolas, Courier New, monospace" font-size="14">name = "小明"</text>
+  <text x="420" y="186" fill="#4a4a40" font-family="Consolas, Courier New, monospace" font-size="14">score = 75</text>
+  <text x="420" y="212" fill="#4a4a40" font-family="Consolas, Courier New, monospace" font-size="14">is_pass() -> True</text>
+  <text x="404" y="252" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">对象保存具体数据，方法操作自己的数据</text>
+
+  <text x="360" y="306" text-anchor="middle" fill="#6b6b5e" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14">一个类可以创建很多对象，每个对象有自己的一份属性。</text>
+</svg>

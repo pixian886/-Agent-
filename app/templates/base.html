@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="从零开始的 Agent 学习平台：先修 Python，再进入 Agent 开发">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>{% block title %}从零开始Agent学习{% endblock %}</title>
+    <!-- 版本参数用于绕过浏览器旧缓存；样式或脚本更新后同步修改版本号 -->
+    <link rel="stylesheet" href="/static/style.css?v=13">
+    <script src="/static/app.js?v=13" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="返回首页">
+            <span class="brand-mark" aria-hidden="true">
+                <svg class="brand-icon" viewBox="0 0 24 24" focusable="false">
+                    <path d="M3 10.5 12 3l9 7.5"></path>
+                    <path d="M5.5 9.5V21h13V9.5"></path>
+                    <path d="M9.5 21v-6h5v6"></path>
+                </svg>
+            </span>
+            <span class="brand-text">从零开始Agent学习</span>
+        </a>
+
+        <div class="header-actions">
+            {% if user %}
+                <a class="nav-link" href="/courses">课程</a>
+                <span class="user-chip">{{ user.username }}</span>
+                <form class="logout-form" method="post" action="/logout">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <button class="btn btn-ghost btn-small" type="submit">退出</button>
+                </form>
+            {% else %}
+                <span class="stage-badge">实践周项目</span>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="page">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <span>Python 先修 · Agent 开发</span>
+        <span>本地运行 · 离线可用</span>
+    </footer>
+</body>
+</html>
